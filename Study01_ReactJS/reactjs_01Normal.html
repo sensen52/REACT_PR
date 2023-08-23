@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReactJS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <!--1. react먼저 import -->
+    <script>
+      const root = document.getElementById("root");
+      const spantag = React.createElement(
+        "span",
+        { id: "sexy-span", style: { color: "red" } },
+        "Hello"
+      );
+
+      //react를 import 했기 때문에 create함수를 가진 React object를 사용할 수 있다.
+      //안에들어갈 내용은 태그 이름과 같아야 한다.
+      //ReactJs가 body안에 HTML을 생성(reactdom libray필요)
+      //1.argument는 태그 이름 두번째는 프로퍼티가 들어갈 수 있다.(classname, id,이벤트)
+      //세번째는 내용
+
+      ReactDOM.render(spantag, root);
+      //render react element를 가지고 html로 만들어 배치한다.(사용자에게 보여준다.)
+
+      //결론:reactjs는 유저에게 보여질 내용을 컨트롤 할 수 있다.
+    </script>
+  </body>
+</html>
