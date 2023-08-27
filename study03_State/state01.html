@@ -6,7 +6,9 @@
     <title>without createElement</title>
   </head>
 
-  <!-- state: 데이터가 저장되는곳: 바뀌는 값들 -->
+  <!-- 컴포넌트를 분리하는 작업/컴포넌트를 다른 컴포넌트에 넣는다 -->
+  <!-- create element 대신 함수를 만들고 불러오는 작업, 대문자로 시작해야함-->
+  <!-- html과 비슷해서 편라한 것 대신 번역 프로그램 babel이 필요하다 -->
   <body>
     <div id="root"></div>
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
@@ -15,20 +17,28 @@
     <script type="text/babel">
       //프로퍼티를 통해서 이벤트를 추가 할 수 있다.
       const root = document.getElementById("root");
+      const Title = () => (
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+          hello i was h3tag
+        </h3>
+      );
+
+      const Button = () => (
+        <button
+          style={{ backgroundColor: "red" }}
+          onClick={() => {
+            console.log("i'm cliked");
+          }}
+        >
+          click me
+        </button>
+      );
 
       //   const container = React.createElement("div", null, [Title, Button]);
       const Container = () => (
         <div>
-          <h3>hello i'm title</h3>
-
-          <button
-            style={{ backgroundColor: "red" }}
-            onClick={() => {
-              console.log("i'm cliked");
-            }}
-          >
-            click me
-          </button>
+          <Title />
+          <Button />
         </div>
       );
 
