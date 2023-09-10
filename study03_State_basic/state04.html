@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>good example to state2_구조분해 할당</title>
+  </head>
+
+  <!-- 구조분해 할당으로 데이터를 가져오기 const [counter, modifier] = React.useState(0);-->
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const root = document.getElementById("root");
+
+      //React.useState(0); 가 이전에 했던 countUp함수를 대신 해주는것(초기설정과 바뀌는 함수)
+      function App() {
+        // const data = React.useState(); //초기설정 가능
+
+        const [counter, modifier] = React.useState(0);
+        // console.log(data); //[undefined ,f] undefined:data, f:data를 바꿀 함수
+        return (
+          <div>
+            <h3>total click :{counter}</h3>
+            <button>click me</button>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
+
+<!-- 
+  const food = ["tomato","potato"] 이라는 배열이 있다 꺼내는방식2가지
+
+  원래는 
+  const favtomato = food[0];이렇게 해야되는데
+
+  구조 분해 할당으로
+   const [myFavFood,mySecondFavFood] = food;
+    my FavFood //tomato
+
+    구조분해 할당이란?
+    열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 JavaScript 표현식
+ -->

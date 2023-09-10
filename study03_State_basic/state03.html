@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>good example to state</title>
+  </head>
+
+  <!-- reactjs 내에서 데이터를 보관하고 자동으로 리렌더링 일으킬 수 있는 방법-->
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const root = document.getElementById("root");
+
+      //React.useState(0); 가 이전에 했던 countUp함수를 대신 해주는것(초기설정과 바뀌는 함수)
+      function App() {
+        const data = React.useState(); //초기설정 가능
+
+        console.log(data); //[undefined ,f] undefined:data, f:data를 바꿀 함수
+        return (
+          <div>
+            <h3>total click :0</h3>
+            <button>click me</button>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
+
+<!-- 
+ 구조 분해 할당 다음장 state04
+ -->

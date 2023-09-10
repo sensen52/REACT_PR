@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>why we use modifier</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const root = document.getElementById("root");
+
+      //React.useState(0); 가 이전에 했던 countUp함수를 대신 해주는것(초기설정과 바뀌는 함수)
+      function App() {
+        const [counter, setCounter] = React.useState(0);
+        const onClick = () => {
+          // counter = counter + 1;
+          // console.log(counter);
+
+          setCounter(counter + 1);
+        };
+
+        return (
+          <div>
+            <h3>total click :{counter}</h3>
+            <button onClick={onClick}>click me</button>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
+<!-- 새로 랜더 된걸로 다시 랜더 -->
