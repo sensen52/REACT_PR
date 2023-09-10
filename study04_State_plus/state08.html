@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>unit convert2</title>
+  </head>
+  <!-- 단위 변환 앱 분=> 시간 , 시간 => 분 -->
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      function App() {
+        const [amount, setAmount] = React.useState(0);
+        const [flipped, setFlipped] = React.useState(false);
+        const onChange = (event) => {
+          setAmount(event.target.value);
+        };
+        const reset = () => setAmount(0);
+        // const onFlip = () => setFlipped(!flipped);
+        const onFlip = () => {
+          reset();
+          setFlipped((current) => !current);
+        };
+
+        return (
+          <div>
+            <h1>super Converter</h1>
+            <div>
+              <label htmlFor="minutes">Minutes</label>
+              <input
+                value={flipped ? amount * 60 : amount}
+                type="number"
+                placeholder="Minutes"
+                id="minutes"
+                onChange={onChange}
+                disabled={flipped}
+              />
+            </div>
+            <div>
+              <label htmlFor="hours">Hours</label>
+              <input
+                value={flipped ? amount : Math.round(amount / 60)}
+                type="number"
+                placeholder="hours"
+                id="hours"
+                disabled={!flipped}
+                onChange={onChange}
+              />
+
+              <button onClick={reset}>Reset</button>
+              <button onClick={onFlip}>Flip</button>
+            </div>
+          </div>
+        );
+      }
+      const root = document.getElementById("root");
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
